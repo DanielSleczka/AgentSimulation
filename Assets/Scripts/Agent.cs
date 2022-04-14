@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class Agent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int healthPoint;
+    [SerializeField] private float agentSpeed;
+
+    private void Start()
     {
-        
+        healthPoint = 3;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        
+        transform.Translate(Vector3.up * agentSpeed * Time.deltaTime);
+        CheckAgentCondition();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            transform.Rotate(0, 0, 180);
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            transform.Rotate(0, 0, 180);
+            healthPoint -= 1;
+
+        }
+    }
+
+    public void CheckAgentCondition()
+    {
+        if (healthPoint <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
