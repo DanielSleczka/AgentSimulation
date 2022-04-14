@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Agent : MonoBehaviour
 {
-    [SerializeField] private int healthPoint;
     [SerializeField] private float agentSpeed;
+    private int healthPoint;
 
     private void Start()
     {
