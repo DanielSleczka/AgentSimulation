@@ -9,7 +9,6 @@ public class MarcoPolo : MonoBehaviour
     [SerializeField] private Button marcoPoloButton;
     [SerializeField] private TextMeshProUGUI textMarcoPolo;
 
-
     private void Start()
     {
         marcoPoloButton.onClick.AddListener(RunMarcoPolo);
@@ -36,7 +35,6 @@ public class MarcoPolo : MonoBehaviour
                 textMarcoPolo.text += $"{i} ";
             }
         }
+        marcoPoloButton.interactable = false;
     }
-
-
 }
