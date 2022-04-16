@@ -5,13 +5,13 @@ using UnityEngine;
 public class Agent : MonoBehaviour
 {
     [SerializeField] private float agentSpeed;
-    private int healthPoint;
+    [SerializeField] private int healthPoint;
+    public int HealtPoint => healthPoint;
 
-    private void Start()
+    private void Awake()
     {
         healthPoint = 3;
     }
-
 
     private void Update()
     {
@@ -30,7 +30,6 @@ public class Agent : MonoBehaviour
         {
             transform.Rotate(0, 0, 180);
             healthPoint -= 1;
-
         }
     }
 
